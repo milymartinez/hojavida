@@ -1,0 +1,17 @@
+<div class="container mt-4">
+  <h2>Panel Administrativo</h2>
+  <button class="btn btn-primary mb-2" (click)="router.navigate(['/admin/new'])">Nueva</button>
+  <table class="table">
+    <thead><tr><th>Posición</th><th>Empresa</th><th>Acciones</th></tr></thead>
+    <tbody>
+      <tr *ngFor="let it of items">
+        <td>{{it.position}}</td>
+        <td>{{it.company}}</td>
+        <td>
+          <button class="btn btn-sm btn-secondary" (click)="router.navigate(['/admin/edit', it._id])">Editar</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(it._id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

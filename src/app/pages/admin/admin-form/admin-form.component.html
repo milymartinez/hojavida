@@ -1,0 +1,27 @@
+<div class="container mt-4">
+  <h3>{{ id ? 'Editar' : 'Nueva' }} experiencia</h3>
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <div class="mb-2">
+      <label>Empresa</label>
+      <input class="form-control" formControlName="company" placeholder="Empresa"/>
+    </div>
+    <div class="mb-2">
+      <label>Cargo</label>
+      <input class="form-control" formControlName="position" placeholder="Cargo"/>
+    </div>
+    <div class="mb-2">
+      <label>Fecha inicio</label>
+      <input type="date" class="form-control" formControlName="startDate" placeholder="Fecha inicio"/>
+    </div>
+    <div class="mb-2">
+      <label>Fecha fin</label>
+      <input type="date" class="form-control" formControlName="endDate" placeholder="Fecha fin"/>
+    </div>
+    <div class="mb-2">
+      <label>Descripción</label>
+      <textarea class="form-control" formControlName="description" placeholder="Descripción"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Guardar</button>
+    <button class="btn btn-secondary ms-2" type="button" (click)="router.navigate(['/admin'])">Cancelar</button>
+  </form>
+</div>

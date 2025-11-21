@@ -1,0 +1,94 @@
+<div class="cv-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="cv-sidebar animate-slide-left">
+    <img src="../../../assets/mil.jpg" alt="Foto de Mily" class="cv-photo">
+
+    <h1 class="cv-name">Mily Mar Martínez Ortiz</h1>
+    <p class="cv-role">Auxiliar SST · Estudiante SST</p>
+
+    <div class="cv-divider"></div>
+
+    <h3 class="cv-subtitle">Contacto</h3>
+    <ul class="cv-list">
+      <li>📍 Momil, Córdoba</li>
+      <li>📞 300 000 0000</li>
+      <li>📧 mily@example.com</li>
+    </ul>
+
+    <div class="cv-divider"></div>
+
+    <h3 class="cv-subtitle">Habilidades</h3>
+    <ul class="cv-list">
+      <li>Trabajo en equipo</li>
+      <li>Comunicación efectiva</li>
+      <li>Aprendizaje rápido</li>
+      <li>Empatía</li>
+      <li>Liderazgo</li>
+    </ul>
+
+    <div class="cv-divider"></div>
+
+    <h3 class="cv-subtitle">Pasatiempos</h3>
+    <ul class="cv-list">
+      <li>Gimnasio</li>
+      <li>Patinar</li>
+      <li>Lectura</li>
+      <li>Familia</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="cv-main animate-fade-in">
+
+    <!-- PERFIL -->
+    <section class="cv-section animate-up">
+      <h2 class="cv-title">Perfil Profesional</h2>
+      <p class="cv-box">
+        Soy una persona responsable, dedicada y comprometida con mis labores.
+        Actualmente estudio Seguridad y Salud en el Trabajo y busco fortalecer mis capacidades.
+      </p>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section class="cv-section animate-up">
+      <h2 class="cv-title">Formación</h2>
+
+      <div class="cv-box">
+        <strong>Seguridad y Salud en el Trabajo</strong> — SENA  
+        <div class="cv-date">2024 – En curso</div>
+      </div>
+
+      <div class="cv-box">
+        <strong>Bachiller Académico</strong> — IE Momil  
+        <div class="cv-date">2022</div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA DINÁMICA -->
+    <section class="cv-section animate-up">
+      <h2 class="cv-title">Experiencia Laboral</h2>
+
+      <ng-container *ngIf="experiences$ | async as exps; else loading">
+
+        <div *ngIf="exps.length === 0" class="cv-box empty">
+          No hay experiencias registradas aún.
+        </div>
+
+        <div *ngFor="let e of exps" class="cv-box experience-item animate-card">
+          <h3>{{ e.position }}</h3>
+          <p class="cv-company">{{ e.company }}</p>
+          <p class="cv-date">{{ e.startDate }} – {{ e.endDate || 'Actual' }}</p>
+          <p>{{ e.description }}</p>
+        </div>
+
+      </ng-container>
+
+      <ng-template #loading>
+        <p class="cv-box">Cargando...</p>
+      </ng-template>
+    </section>
+
+  </main>
+
+</div>
